@@ -67,13 +67,13 @@ broker:
     # druid_monitoring_monitors: '["org.apache.druid.client.cache.CacheMonitor", "org.apache.druid.server.metrics.QueryCountStatsMonitor"]'
 
   ingress:
-    enabled: false
+    enabled: true
     annotations: {}
       # kubernetes.io/ingress.class: nginx
       # kubernetes.io/tls-acme: "true"
-    path: /
+    path: "/broker"
     hosts:
-      - chart-example.local
+      - druid.local
     tls: []
     #  - secretName: chart-example-tls
     #    hosts:
@@ -114,7 +114,7 @@ coordinator:
     annotations: {}
       # kubernetes.io/ingress.class: nginx
       # kubernetes.io/tls-acme: "true"
-    path: /coordinator
+    path: "/coordinator"
     hosts:
       - druid.local
     tls: []
@@ -329,7 +329,7 @@ router:
   name: router
   replicaCount: 1
   port: 8888
-  serviceType: ClusterIP
+  serviceType: NodePort
 
   config:
     DRUID_XMX: 128m
@@ -341,7 +341,7 @@ router:
     annotations: {}
       # kubernetes.io/ingress.class: nginx
       # kubernetes.io/tls-acme: "true"
-    path: /druid
+    path: "/druid"
     hosts:
       - druid.local
     tls: []
