@@ -27,6 +27,16 @@ spec:
 {{ toYaml . | indent 8 }}
       {{- end }}
     spec:
+      volumes:
+      {{- if .Values.historical.persistence.enabled }}
+      - name: data
+        persistentVolumeClaim:
+          claimName:  {{ template "druid.name" . }}
+      {{- end }}
+      {{- if not .Values.middleManager.persistence.enabled }}
+      - name: data
+        emptyDir: {}
+      {{- end }}
       containers:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
@@ -54,6 +64,9 @@ spec:
             httpGet:
               path: /status/health
               port: {{ .Values.broker.port }}
+          volumeMounts:
+            - mountPath: /opt/druid/var/druid/
+              name: data
           resources:
 {{ toYaml .Values.broker.resources | indent 12 }}
     {{- with .Values.broker.nodeSelector }}

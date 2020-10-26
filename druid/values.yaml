@@ -31,7 +31,7 @@ configVars:
   druid_storage_type: local
   druid_storage_storageDirectory: "var/druid/segments"
   druid_indexer_logs_type: file
-  druid_indexer_logs_directory: /opt/data/indexing-logs
+  druid_indexer_logs_directory: "var/druid/indexing-logs"
 
   ## Druid Emitting Metrics. ref: https://druid.apache.org/docs/latest/configuration/index.html#emitting-metrics
   druid_emitter: noop
