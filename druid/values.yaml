@@ -11,6 +11,11 @@ sharedPvc:
   createNew: false
   name: druid-pvc
 
+# Postgres subchart related configs
+persistence:
+  enabled: true
+  existingClaim: druid-pvc
+
 configMap:
   ## If false, configMap will not be applied
   ##

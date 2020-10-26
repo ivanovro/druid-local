@@ -1,0 +1,14 @@
+# static persistent volume outside of the chart's lifecycle
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: druid-pvc
+  labels:
+    app: druid
+spec:
+  storageClassName: "nfs"
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 3Gi
