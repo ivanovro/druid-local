@@ -69,12 +69,6 @@ spec:
           volumeMounts:
             - mountPath: /opt/druid/var/druid/
               name: data
-      volumes:
-  {{- if .Values.gCloudStorage.enabled }}
-      - name: google-cloud-key
-        secret:
-          secretName: {{ .Values.gCloudStorage.secretName }}
-  {{- end }}
     {{- with .Values.coordinator.nodeSelector }}
       nodeSelector:
 {{ toYaml . | indent 8 }}
