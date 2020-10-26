@@ -8,5 +8,8 @@ dependencies:
 - name: postgresql
   repository: https://kubernetes-charts.storage.googleapis.com/
   version: 8.6.4
-digest: sha256:83a9062c485163ef025e6d1e817b089c65860dcfba8bc0f8ecb00fa343aa4d2f
-generated: "2020-10-26T09:38:19.740834+01:00"
+- name: ingress-nginx
+  repository: https://kubernetes.github.io/ingress-nginx
+  version: 3.7.1
+digest: sha256:a498cb8972a5d9d35019dceb1d2cefd678c90b7b2290e68e4d23327b374d0bc2
+generated: "2020-10-26T15:49:04.995919+01:00"

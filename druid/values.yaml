@@ -110,13 +110,13 @@ coordinator:
     # druid_monitoring_monitors: '["org.apache.druid.server.metrics.TaskCountStatsMonitor"]'
 
   ingress:
-    enabled: false
+    enabled: true
     annotations: {}
       # kubernetes.io/ingress.class: nginx
       # kubernetes.io/tls-acme: "true"
-    path: /
+    path: /coordinator
     hosts:
-      - chart-example.local
+      - druid.local
     tls: []
     #  - secretName: chart-example-tls
     #    hosts:
@@ -337,13 +337,13 @@ router:
     DRUID_MAXDIRECTMEMORYSIZE: 128m
 
   ingress:
-    enabled: false
+    enabled: true
     annotations: {}
       # kubernetes.io/ingress.class: nginx
       # kubernetes.io/tls-acme: "true"
-    path: /
+    path: /druid
     hosts:
-      - chart-example.local
+      - druid.local
     tls: []
     #  - secretName: chart-example-tls
     #    hosts:
@@ -382,6 +382,12 @@ zookeeper:
   headless:
     publishNotReadyAddresses: true
 
+
+# ------------------------------------------------------------------------------
+# Nginx Ingress:
+# ------------------------------------------------------------------------------
+nginx:
+  enabled: false
 
 # ------------------------------------------------------------------------------
 # MySQL:

@@ -5,4 +5,4 @@ Experimenting with NFS shared storage
 https://github.com/helm/charts/tree/master/stable/nfs-server-provisioner
 
 ### Nginx ingress controller 
-https://kubernetes.github.io/ingress-nginx/deploy/ 
+https://github.com/kubernetes/ingress-nginx/tree/master/charts/ingress-nginx
