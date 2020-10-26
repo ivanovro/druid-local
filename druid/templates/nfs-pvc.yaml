@@ -1,8 +1,8 @@
-{{- if .Values.sharedPvc.enabled -}}
+{{- if .Values.sharedPvc.createNew -}}
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: {{ template "druid.name" . }}
+  name: {{ .Values.sharedPvc.name }}
   labels:
     app: {{ template "druid.name" . }}
     chart: {{ template "druid.chart" . }}

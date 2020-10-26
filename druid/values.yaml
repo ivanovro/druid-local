@@ -8,7 +8,8 @@ image:
 
 sharedPvc:
   ## Use shared PVC for segments, tmp processing files, etc
-  enabled: true
+  createNew: false
+  name: druid-pvc
 
 configMap:
   ## If false, configMap will not be applied

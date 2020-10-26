@@ -106,7 +106,7 @@ spec:
         {{- if .Values.historical.persistence.enabled }}
         - name: data
           persistentVolumeClaim:
-            claimName:  {{ template "druid.name" . }}
+            claimName:  {{ .Values.sharedPvc.name }}
         {{- end }}
         {{- if not .Values.middleManager.persistence.enabled }}
       - name: data
