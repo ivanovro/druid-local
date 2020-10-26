@@ -10,7 +10,6 @@ metadata:
     release: {{ .Release.Name }}
   name: {{ template "druid.middleManager.fullname" . }}
 spec:
-  serviceName: {{ template "druid.middleManager.fullname" . }}
   replicas: {{ .Values.middleManager.replicaCount }}
   selector:
     matchLabels:
